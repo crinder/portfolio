@@ -1,0 +1,214 @@
+---
+import { data } from "../data/data.js";
+
+const frotendSkill = data.frotendSkill;
+const backendSkill = data.backendSkill;
+const toolSkil = data.toolSkil;
+const svgIcon = data.svgIcon;
+---
+
+<section id="about" class="py-20 relative z-10 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="animate-on-scroll text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Sobre mí</span>
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mb-8"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16">
+      <div class="animate-on-scroll space-y-8">
+        <div class="floating-element">
+          <div
+            class="glass-card-card p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm
+         relative group
+         transition-transform duration-500 ease-out
+         translate-y-0.5 hover:translate-y-0"
+          >
+            <div class="flex items-center space-x-4 mb-8">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl
+             flex items-center justify-center
+             shadow-lg shadow-purple-500/20
+             transition-shadow duration-500
+             group-hover:shadow-purple-500/30"
+              >
+                <svg class="w-8 h-8 text-white">
+                  <use href="/sprite.svg#icon-heart"></use>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white leading-tight">
+                  Lógica de datos desde 2016. <br />
+                  Experiencias web desde 2022.
+                </h3>
+                <p class="text-white/50 text-sm">Trayectoria técnica</p>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <p class="text-lg text-white/90 leading-relaxed">
+                Empecé en <span class="text-purple-400 font-semibold">2016</span
+                >
+                dentro del ecosistema Oracle y el sector de seguros, un entorno de
+                sistemas críticos donde la precisión y la lógica no perdonan. En
+                <span class="text-pink-400 font-semibold">2022</span>, decidí
+                llevar toda esa base al desarrollo web, buscando el equilibrio
+                entre una estructura sólida y interfaces modernas, claras y
+                fáciles de usar.
+              </p>
+
+              <!-- Card interna -->
+              <div class="relative group">
+                <div
+                  class="absolute -inset-0.5 rounded-2xl blur
+               bg-gradient-to-r from-purple-600 to-pink-600
+               opacity-10
+               transition-opacity duration-500
+               group-hover:opacity-20"
+                >
+                </div>
+
+                <div
+                  class="relative bg-white/5 border border-white/10 p-6 rounded-2xl
+               transition-colors duration-500
+               group-hover:border-white/20
+               group-hover:bg-white/8"
+                >
+                  <h4
+                    class="text-white font-bold text-lg mb-2 flex items-center gap-2"
+                  >
+                    <svg class="w-5 h-5 text-pink-500">
+                      <use href="/sprite.svg#icon-target"></use>
+                    </svg>
+                    ¿Qué aporto a tu negocio?
+                  </h4>
+
+                  <p class="text-white/70 leading-relaxed">
+                    No solo escribo código; optimizo procesos. Mi prioridad es
+                    entender el negocio para que la tecnología trabaje a tu
+                    favor. Aporto soluciones
+                    <span class="text-white"
+                      >fáciles de mantener, escalables</span
+                    >
+                    y, sobre todo, útiles, para que tú puedas enfocarte en lo importante:
+                    <span class="text-pink-400 italic"
+                      >hacer crecer tu negocio</span
+                    >.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative flex justify-center items-center flex-wrap mt-15 gap-8 p-5"
+        >
+          {
+            svgIcon.map((icon) => (
+              <svg class={`w-14 h-14 ${icon.position}`}>
+                <use href={`/sprite.svg#${icon.name}`} />
+              </svg>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="floating-element">
+          <div class="glass-card-card p-8 rounded-2xl">
+            <div class="flex items-center gap-4">
+              <svg class="w-6 h-6 text-purple-400">
+                <use href="sprite.svg#icon-check-circle"></use>
+              </svg>
+              <h3 class="text-2xl font-bold text-white">Habilidades</h3>
+            </div>
+
+            <div class="space-y-6">
+              <div class="py-16">
+                <div class="container mx-auto">
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+                  >
+                    <div
+                      class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-transform hover:scale-105 duration-300"
+                    >
+                      <div class="flex items-center mb-6 gap-2">
+                        <svg class="w-8 h-8">
+                          <use href="sprite.svg#icon-frontend"></use>
+                        </svg>
+                        <h6
+                          class="text-xl font-bold text-gray-800 dark:text-gray-200"
+                        >
+                          Front-end
+                        </h6>
+                      </div>
+                      <div class="flex flex-wrap gap-2">
+                        {
+                          frotendSkill.map((front) => (
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                              {front.name}
+                            </span>
+                          ))
+                        }
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-transform hover:scale-105 duration-300"
+                    >
+                      <div class="flex items-center mb-6 gap-2">
+                        <svg class="w-8 h-8">
+                          <use href="sprite.svg#icon-backend"></use>
+                        </svg>
+                        <h6
+                          class="text-xl font-bold text-gray-800 dark:text-gray-200"
+                        >
+                          Back-end
+                        </h6>
+                      </div>
+
+                      <div class="flex flex-wrap gap-2">
+                        {
+                          backendSkill.map((back) => (
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-green-900 dark:text-green-300">
+                              {back.name}
+                            </span>
+                          ))
+                        }
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-transform hover:scale-105 duration-300"
+                    >
+                      <div class="flex items-center mb-6 gap-2">
+                        <svg class="w-10 h-10">
+                          <use href="sprite.svg#icon-tools"></use>
+                        </svg>
+                        <h6
+                          class="text-xl font-bold text-gray-800 dark:text-gray-200"
+                        >
+                          Herramientas
+                        </h6>
+                      </div>
+                      <div class="flex flex-wrap gap-2">
+                        {
+                          toolSkil.map((tools) => (
+                            <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-purple-900 dark:text-purple-300">
+                              {tools.name}
+                            </span>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

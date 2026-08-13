@@ -1,0 +1,71 @@
+---
+import { data } from "../data/data.js";
+import CardExperience from "./CardExperience.astro";
+
+const dataexperience = data.experience;
+const featuredExperience = dataexperience.slice(0, 2);
+const olderExperience = dataexperience.slice(2);
+
+---
+<section id="experience" class="py-20 relative z-10 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="space-y-12">
+            {/* Renderizamos las principales */}
+            {featuredExperience.map((exp, idx) => <CardExperience exp={exp} />)}
+
+            {/* Contenedor colapsable para las viejas */}
+            <div id="more-experience" class="hidden space-y-12 opacity-0 transition-all duration-700">
+                {
+                    olderExperience.map((exp, idx) => (
+                        <CardExperience exp={exp} />
+                    ))
+                }
+            </div>
+
+            {
+                dataexperience.length > 2 && (
+                    <div class="text-center mt-12">
+                        <button id="btn-show-more"
+                            class="group relative inline-flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl text-white font-medium hover:bg-white/10 transition-all duration-300">
+                            <span id="btn-text">Ver trayectoria completa</span>
+                            <svg id="btn-icon"class="w-5 h-5 transition-transform duration-300 group-hover:translate-y-1">
+                                <use href="sprite.svg#icon-arrow-down" />
+                            </svg>
+                        </button>
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    const btn = document.getElementById("btn-show-more");
+    const container = document.getElementById("more-experience");
+    const btnText = document.getElementById("btn-text");
+    const btnIcon = document.getElementById("btn-icon");
+
+    btn?.addEventListener("click", () => {
+        const isHidden = container.classList.contains("hidden");
+
+        if (isHidden) {
+            container.classList.remove("hidden");
+            setTimeout(() => {
+                container.classList.add("opacity-100");
+                container.classList.remove("opacity-0");
+            }, 10);
+            btnText.innerText = "Mostrar menos";
+            btnIcon.style.transform = "rotate(180deg)";
+        } else {
+            container.classList.add("opacity-0");
+            setTimeout(() => {
+                container.classList.add("hidden");
+                document
+                    .getElementById("experience")
+                    .scrollIntoView({ behavior: "smooth" });
+            }, 500);
+            btnText.innerText = "Ver trayectoria completa";
+            btnIcon.style.transform = "rotate(0deg)";
+        }
+    });
+</script>

@@ -1,0 +1,84 @@
+---
+const { exp } = Astro.props;
+---
+
+<div class="glass-card-card p-6 md:p-10 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm transition-transform duration-300 ease-out -translate-y-1.5 hover:translate-y-0">
+  
+  <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+    <div class="flex items-center space-x-4">
+      <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center shadow-lg shadow-purple-500/10 rounded-xl p-2 border border-white/5">
+        <svg class="w-10 h-10 text-purple-400">
+          <use href="sprite.svg#icon-circuit" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-white leading-tight">
+          {exp.cargo}
+        </h3>
+        <p class="font-medium text-white/60">{exp.periodo}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-5 relative border-l-2 border-white/10 pl-6 ml-2 space-y-8">
+      <div class="absolute -left-[9px] top-1 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-2 border-[#0a0a0a]" />
+
+      {exp.actividades.map((act) => (
+        <div>
+          <h4 class="text-lg font-bold text-white mb-3 flex items-center bg-gradient-to-r from-purple-400 ">
+            <span class="mr-2 ">{act.area.split(" ")[0]}</span>
+            <span class="">
+              {act.area.split(" ").slice(1).join(" ") }
+            </span>
+          </h4>
+          <ul class="space-y-2 text-white/70">
+            {act.tarea.map((task) => (
+              <li class="flex items-start text-sm">
+                <span class="text-purple-400 mr-2">•</span>
+                {task.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
+      {exp.proyecto.map((pro) => (
+        <div class="relative group">
+          <div class="absolute -inset-0.5 rounded-xl blur bg-gradient-to-r from-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition duration-500" />
+          <div class="relative bg-white/5 rounded-xl p-6 border border-white/10 h-full">
+            <div class="flex items-center mb-4 gap-3">
+              <svg class="w-5 h-5 text-pink-400">
+                <use href={`sprite.svg#icon-${pro.svg}`} />
+              </svg>
+              <h6 class="text-xs font-bold  uppercase tracking-widest">
+                {pro.title}
+              </h6>
+            </div>
+
+            {pro.list === "S" ? (
+              <ul class="space-y-2">
+                {pro.items.map((item) => (
+                  <li class="flex items-center text-sm">
+                    <span class="w-1 h-1 bg-purple-500 rounded-full mr-2" />
+                    {item.item}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div class="flex flex-wrap gap-2">
+                {pro.items.map((item) => (
+                  <span class="bg-white/5 text-purple-300 text-xs px-2 py-1 rounded border border-white/10 uppercase tracking-tighter">
+                    {item.item}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

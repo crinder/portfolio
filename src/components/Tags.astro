@@ -1,0 +1,62 @@
+<!-- Dentro del layout o justo antes del <Content/> -->
+<div class="fixed top-10 left-10 z-10 pointer-events-none">
+  <code id="tag-open"class="animate-fade-in text-[40px] md:text-[100px] text-gray-500 opacity-30 transition-transform duration-200">
+    &lt;&gt;
+  </code>
+</div>
+
+<div class="fixed bottom-10 right-10 z-10 pointer-events-none">
+  <code id="tag-close" class="animate-fade-in text-[40px] md:text-[100px] text-gray-500 opacity-30 transition-transform duration-200">
+    &lt;/&gt;
+  </code>
+</div>
+
+<script is:inline>
+  // Función de animación fuera para que sea accesible
+  function animateTextChange(el, newText) {
+    el.style.opacity = "0"; 
+    setTimeout(() => {
+      el.textContent = newText;
+      el.style.opacity = "0.3";
+      el.style.transform = "scale(1.1)";
+      setTimeout(() => el.style.transform = "scale(1)", 200);
+    }, 150);
+  }
+
+  const initTags = () => {
+    const sections = document.querySelectorAll("section[id]"); // Solo secciones con ID
+    const tagOpen = document.getElementById("tag-open");
+    const tagClose = document.getElementById("tag-close");
+
+    if (!tagOpen || !tagClose) return;
+
+    // Efecto Parallax suave al hacer scroll
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      tagOpen.style.transform = `translateY(${scrollY * 0.05}px)`;
+      tagClose.style.transform = `translateY(${scrollY * -0.05}px)`;
+    });
+
+    const observerOptions = {
+      // Usamos un margen negativo para que detecte la sección 
+      // cuando esté en el centro de la pantalla
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0
+    };
+
+    const observador = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          animateTextChange(tagOpen, `<${id}>`);
+          animateTextChange(tagClose, `</${id}>`);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((s) => observador.observe(s));
+  };
+
+  document.addEventListener("DOMContentLoaded", initTags);
+
+</script>

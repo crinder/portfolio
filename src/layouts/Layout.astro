@@ -1,0 +1,57 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Creative Developer Portfolio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden"
+  >
+
+    <slot />
+
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      >
+      </div>
+      <div
+        class="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow"
+      >
+      </div>
+      <div
+        class="absolute bottom-20 right-20 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-pulse-slow"
+        style="animation-delay: 2s;"
+      >
+      </div>
+      <div
+        class="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-float"
+        style="animation-delay: 4s;"
+      >
+      </div>
+    </div>
+
+    <!-- Cursor Follower -->
+    <div
+      id="cursor"
+      class="fixed w-6 h-6 bg-white/20 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100 ease-out"
+    >
+    </div>
+
+  </body>
+
+</html>
