@@ -1,0 +1,84 @@
+---
+import { icons } from "@/data/icons.js";
+const svgIcon = icons.svgIcon;
+---
+
+<div class="animate-on-scroll space-y-8">
+    <div class="relative group">
+        <div class="flex items-center space-x-4 mb-8">
+            <div
+                class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20 transition-shadow duration-500 group-hover:shadow-purple-500/30"
+            >
+                <svg class="w-8 h-8 text-white">
+                    <use href="/sprite.svg#icon-terminal"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-white leading-tight">
+                    Lógica de datos desde 2016. <br />
+                    Experiencias web desde 2022.
+                </h3>
+                <p class="text-white/50 text-sm">Trayectoria técnica</p>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            <p class="text-lg text-white/90 leading-relaxed">
+                Empecé en <span class="text-purple-400 font-semibold">2016</span
+                >
+                dentro del ecosistema Oracle y el sector de seguros, un entorno de
+                sistemas críticos donde la precisión y la lógica no perdonan. En
+                <span class="text-pink-400 font-semibold">2022</span>, decidí
+                llevar toda esa base al desarrollo web, buscando el equilibrio
+                entre una estructura sólida y interfaces modernas, claras y
+                fáciles de usar.
+            </p>
+
+            <!-- Card interna -->
+            <div class="relative group">
+                <div
+                    class="absolute -inset-0.5 rounded-2xl blur bg-gradient-to-r from-purple-600 to-pink-600 opacity-10 transition-opacity duration-500 group-hover:opacity-20"
+                >
+                </div>
+                <div
+                    class="relative bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors duration-500 group-hover:border-white/20 group-hover:bg-white/8"
+                >
+                    <h4
+                        class="text-white font-bold text-lg mb-2 flex items-center gap-2"
+                    >
+                        <svg class="w-5 h-5 text-pink-500">
+                            <use href="/sprite.svg#icon-target"></use>
+                        </svg>
+                        ¿Qué aporto a tu negocio?
+                    </h4>
+                    <p class="text-white/70 leading-relaxed">
+                        No solo escribo código; optimizo procesos. Mi prioridad
+                        es entender el negocio para que la tecnología trabaje a
+                        tu favor. Aporto soluciones
+                        <span class="text-white"
+                            >fáciles de mantener, escalables</span
+                        >
+                        y, sobre todo, útiles, para que tú puedas enfocarte en lo
+                        importante:
+                        <span class="text-pink-400 italic"
+                            >hacer crecer tu negocio</span
+                        >.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Iconos flotantes -->
+    <div
+        class="relative flex justify-center items-center flex-wrap mt-15 gap-8 p-5"
+    >
+        {
+            svgIcon.map((icon) => (
+                <svg class={`w-14 h-14 ${icon.position}`}>
+                    <use href={`/sprite.svg#${icon.name}`} />
+                </svg>
+            ))
+        }
+    </div>
+</div>
