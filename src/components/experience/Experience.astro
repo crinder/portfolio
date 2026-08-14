@@ -1,0 +1,251 @@
+---
+import { data } from "@/data/data.js";
+const dataexperience = data.experience;
+
+// Función para generar nombres de archivo semánticos
+const getFileName = (empresa, cargo, index) => {
+    if (empresa) {
+        return `${empresa.toLowerCase().replace(/\s+/g, "-")}.md`;
+    }
+    const rolePrefix = cargo.split(" ")[0].toLowerCase();
+    return `${rolePrefix}-0${index + 1}.md`;
+};
+---
+
+<section id="experience" class="py-20 relative z-10 px-6 font-sans">
+    <div class="max-w-5xl mx-auto">
+        <div
+            class="bg-[#09090B] border border-white/10 rounded-xl overflow-hidden shadow-2xl flex flex-col ring-1 ring-white/5 transition-all duration-300"
+        >
+            <div
+                class="flex items-center px-4 py-3 border-b border-white/10 bg-[#09090B]"
+            >
+                <div class="flex gap-2 w-1/3">
+                    <div
+                        class="w-3 h-3 rounded-full bg-stone-700/50 hover:bg-red-500/80 transition-colors cursor-pointer"
+                    >
+                    </div>
+                    <div
+                        class="w-3 h-3 rounded-full bg-stone-700/50 hover:bg-yellow-500/80 transition-colors cursor-pointer"
+                    >
+                    </div>
+                    <div
+                        class="w-3 h-3 rounded-full bg-stone-700/50 hover:bg-green-500/80 transition-colors cursor-pointer"
+                    >
+                    </div>
+                </div>
+                <div class="w-1/3 text-center text-xs font-mono text-slate-500">
+                    crinderson-portfolio
+                </div>
+                <div class="w-1/3"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row flex-1">
+                <!-- EXPLORER -->
+                <div
+                    class="md:w-64 border-b md:border-b-0 md:border-r border-white/10 bg-[#09090B]/50 flex flex-col shrink-0"
+                >
+                    <div
+                        class="px-4 py-4 text-[10px] md:text-xs font-bold text-slate-500 tracking-widest flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-3.5 h-3.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"></path></svg
+                        >
+                        EXPLORER: EXPERIENCE
+                    </div>
+
+                    <div
+                        class="flex flex-row md:flex-col overflow-x-auto md:overflow-visible px-2 pb-3 md:pb-4 gap-1.5 md:gap-1 custom-scrollbar"
+                    >
+                        {
+                            dataexperience.map((exp, index) => (
+                                <button
+                                    class={`tab-btn shrink-0 md:shrink flex items-center gap-2.5 px-3 py-2 text-sm font-mono rounded-md transition-all duration-200 text-left md:truncate border md:border-none
+                  ${index === 0 ? "bg-white/[0.08] text-emerald-400 border-white/10" : "text-slate-400 hover:bg-white/[0.04] hover:text-slate-200 border-transparent"}
+                `}
+                                    data-target={`content-${index}`}
+                                    data-filename={getFileName(
+                                        exp.empresa,
+                                        exp.cargo,
+                                        index,
+                                    )}
+                                >
+                                    <svg
+                                        class="w-4 h-4 shrink-0 text-cyan-400/70"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                    >
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10zm4 0h-2v-4h-2v4h-2V7h2v4h2V7h2v10z" />
+                                    </svg>
+                                    <span class="truncate">
+                                        {getFileName(
+                                            exp.empresa,
+                                            exp.cargo,
+                                            index,
+                                        )}
+                                    </span>
+                                </button>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div class="flex-1 flex flex-col bg-[#0A0A0A] relative">
+                    <div class="flex bg-[#09090B] border-b border-white/10">
+                        <div
+                            class="px-5 py-2.5 border-t-2 border-t-emerald-400 bg-[#0A0A0A] flex items-center gap-2.5 text-sm font-mono text-emerald-400 shadow-[0_-1px_0_0_rgba(255,255,255,0.05)]"
+                        >
+                            <svg
+                                class="w-4 h-4 text-cyan-400/70"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                ><path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10zm4 0h-2v-4h-2v4h-2V7h2v4h2V7h2v10z"
+                                ></path></svg
+                            >
+                            <span id="active-filename" class="tracking-wide"
+                                >{
+                                    getFileName(
+                                        dataexperience[0].empresa,
+                                        dataexperience[0].cargo,
+                                        0,
+                                    )
+                                }</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        {
+                            dataexperience.map((exp, index) => (
+                                <div
+                                    id={`content-${index}`}
+                                    class={`tab-content animate-fade-in ${index === 0 ? "block" : "hidden"}`}
+                                >
+                                    <div class="font-mono text-[13px] md:text-sm mb-10 pl-4 border-l-2 border-white/10">
+                                        <div class="text-slate-500/70">---</div>
+                                        <div class="mt-1 flex flex-wrap">
+                                            <span class="text-purple-400 w-20 shrink-0">
+                                                role:
+                                            </span>{" "}
+                                            <span class="text-emerald-400 break-words">
+                                                "{exp.cargo}"
+                                            </span>
+                                        </div>
+                                        <div class="mt-1 flex flex-wrap">
+                                            <span class="text-purple-400 w-20 shrink-0">
+                                                period:
+                                            </span>{" "}
+                                            <span class="text-emerald-400 break-words">
+                                                "{exp.periodo}"
+                                            </span>
+                                        </div>
+                                        <div class="text-slate-500/70 mt-1">
+                                            ---
+                                        </div>
+                                    </div>
+
+                                    <div class="font-mono text-sm md:text-[15px] space-y-8">
+                                        {exp.actividades.map((act) => (
+                                            <div>
+                                                <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                                                    <span class="text-cyan-400">
+                                                        ##
+                                                    </span>
+                                                    <span class="text-slate-200">
+                                                        {act.area}
+                                                    </span>
+                                                </h4>
+                                                <ul class="space-y-3 pl-1 md:pl-2">
+                                                    {act.tarea.map((task) => (
+                                                        <li class="flex items-start group leading-relaxed">
+                                                            <span class="text-pink-500/80 mr-3 mt-0.5">
+                                                                -
+                                                            </span>
+                                                            <span class="text-stone-400 group-hover:text-stone-200 transition-colors">
+                                                                {task.name}
+                                                            </span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+        const activeFileNameEl = document.getElementById("active-filename");
+
+        tabBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                tabBtns.forEach((b) => {
+                    b.classList.remove(
+                        "bg-white/[0.08]",
+                        "text-emerald-400",
+                        "border-white/10",
+                    );
+                    b.classList.add("text-slate-400", "border-transparent");
+                });
+                btn.classList.remove("text-slate-400", "border-transparent");
+                btn.classList.add(
+                    "bg-white/[0.08]",
+                    "text-emerald-400",
+                    "border-white/10",
+                );
+
+                activeFileNameEl.innerText = btn.getAttribute("data-filename");
+
+                tabContents.forEach((content) => {
+                    content.classList.add("hidden");
+                    content.classList.remove("block");
+                });
+                const targetId = btn.getAttribute("data-target");
+                document.getElementById(targetId).classList.remove("hidden");
+                document.getElementById(targetId).classList.add("block");
+            });
+        });
+    });
+</script>
+
+<style>
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .custom-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>

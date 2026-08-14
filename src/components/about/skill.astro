@@ -1,0 +1,145 @@
+---
+import { data } from "@/data/skill.js";
+const frotendSkill = data.frotendSkill;
+const backendSkill = data.backendSkill;
+const toolSkil = data.toolSkil;
+---
+
+<div class="animate-on-scroll">
+    <div class="relative">
+        <div class="flex items-center gap-4 mb-6">
+            <svg class="w-6 h-6 text-purple-400">
+                <use href="sprite.svg#icon-check-circle"></use>
+            </svg>
+            <h3 class="text-2xl font-bold text-white">Stack Tecnológico</h3>
+        </div>
+
+        <div class="w-full relative group z-10">
+            <div
+                class="absolute -inset-1 bg-cyan-500/20 rounded-2xl blur opacity-30 transition duration-500 group-hover:opacity-50"
+            >
+            </div>
+
+            <div
+                class="relative bg-[#09090B]/95 backdrop-blur-xl border border-white/15 rounded-xl overflow-hidden shadow-2xl"
+            >
+                <div
+                    class="flex items-center px-4 py-3 border-b border-white/10 bg-white/[0.03]"
+                >
+                    <div class="flex gap-2">
+                        <div
+                            class="w-3 h-3 rounded-full bg-stone-600 hover:bg-red-500 transition-colors"
+                        >
+                        </div>
+                        <div
+                            class="w-3 h-3 rounded-full bg-stone-600 hover:bg-yellow-500 transition-colors"
+                        >
+                        </div>
+                        <div
+                            class="w-3 h-3 rounded-full bg-stone-600 hover:bg-green-500 transition-colors"
+                        >
+                        </div>
+                    </div>
+                    <div
+                        class="mx-auto text-xs font-mono text-slate-400 flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4 text-cyan-400"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z"
+                            ></path>
+                        </svg>
+                        stack.yml
+                    </div>
+                    <div class="w-11"></div>
+                </div>
+
+                <div
+                    class="p-6 md:p-8 font-mono text-sm md:text-base leading-relaxed overflow-x-auto"
+                >
+                    <div class="text-slate-500 mb-4">
+                        # Configuración de infraestructura y stack
+                    </div>
+                    <div class="text-cyan-400">
+                        version: <span class="text-emerald-400">'3.8'</span>
+                    </div>
+                    <div class="text-cyan-400 mt-2">services:</div>
+
+                    <div class="pl-6 mt-2">
+                        <div class="text-slate-200">frontend:</div>
+                        <div class="pl-4 flex flex-wrap gap-2 mt-1">
+                            <span class="text-slate-500">depends_on:</span>
+                            <span class="text-slate-400">
+                                [ {
+                                    frotendSkill.map((skill, index) => (
+                                        <Fragment key={skill.name}>
+                                            <span class="text-emerald-400 hover:text-white transition-colors cursor-default">
+                                                '{skill.name}'
+                                            </span>
+                                            {index <
+                                                frotendSkill.length - 1 && (
+                                                <span class="text-slate-600">
+                                                    ,{" "}
+                                                </span>
+                                            )}
+                                        </Fragment>
+                                    ))
+                                } ]
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="pl-6 mt-4">
+                        <div class="text-slate-200">backend:</div>
+                        <div class="pl-4 flex flex-wrap gap-2 mt-1">
+                            <span class="text-slate-500">depends_on:</span>
+                            <span class="text-slate-400">
+                                [ {
+                                    backendSkill.map((skill, index) => (
+                                        <Fragment key={skill.name}>
+                                            <span class="text-emerald-400 hover:text-white transition-colors cursor-default">
+                                                '{skill.name}'
+                                            </span>
+                                            {index <
+                                                backendSkill.length - 1 && (
+                                                <span class="text-slate-600">
+                                                    ,{" "}
+                                                </span>
+                                            )}
+                                        </Fragment>
+                                    ))
+                                } ]
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="pl-6 mt-4">
+                        <div class="text-slate-200">infrastructure:</div>
+                        <div class="pl-4 flex flex-wrap gap-2 mt-1">
+                            <span class="text-slate-500">tools:</span>
+                            <span class="text-slate-400">
+                                [ {
+                                    toolSkil.map((skill, index) => (
+                                        <Fragment key={skill.name}>
+                                            <span class="text-emerald-400 hover:text-white transition-colors cursor-default">
+                                                '{skill.name}'
+                                            </span>
+                                            {index < toolSkil.length - 1 && (
+                                                <span class="text-slate-600">
+                                                    ,{" "}
+                                                </span>
+                                            )}
+                                        </Fragment>
+                                    ))
+                                } ]
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

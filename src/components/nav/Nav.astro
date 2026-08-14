@@ -1,0 +1,125 @@
+<nav class="fixed top-0 w-full p-4 md:p-6 z-50">
+  <div
+    class="glass-card max-w-7xl mx-auto rounded-2xl transition-all duration-300"
+  >
+    <div class="flex items-center justify-between p-4">
+      <div class="flex items-center gap-2 w-1/4">
+        <div
+          class="w-3.5 h-3.5 rounded-full bg-red-500 shadow-sm cursor-pointer"
+        >
+        </div>
+        <div
+          class="w-3.5 h-3.5 rounded-full bg-yellow-500 shadow-sm transition-colors cursor-pointer"
+        >
+        </div>
+        <div
+          class="w-3.5 h-3.5 rounded-full bg-green-500 shadow-sm transition-colors cursor-pointer"
+        >
+        </div>
+      </div>
+
+      <div
+        class="hidden md:flex items-center justify-center space-x-8 font-mono text-[14px] w-2/4 nav-links"
+      >
+        <a
+          href="#home"
+          data-section="home"
+          data-color="text-emerald-400"
+          class="nav-link text-white/60 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.5)] transition-all duration-300"
+        >
+          Home
+        </a>
+        <a
+          href="#about"
+          data-section="about"
+          data-color="text-cyan-400"
+          class="nav-link text-white/60 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] transition-all duration-300"
+        >
+          Sobre mi
+        </a>
+        <a
+          href="#experience"
+          data-section="experience"
+          data-color="text-purple-400"
+          class="nav-link text-white/60 hover:text-purple-400 hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.5)] transition-all duration-300"
+        >
+          Experiencia
+        </a>
+        <a
+          href="#contact"
+          data-section="contact"
+          data-color="text-yellow-400"
+          class="nav-link text-white/60 hover:text-yellow-400 hover:drop-shadow-[0_0_8px_rgba(250,204,21,0.5)] transition-all duration-300"
+        >
+          Contacto
+        </a>
+      </div>
+      <div class="flex items-center justify-end w-1/4">
+        <button
+          class="font-mono text-xs md:text-sm text-white/60 hover:text-emerald-400 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 px-4 py-2 rounded-lg transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]"
+        >
+          > CV.pdf
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const updateActiveSection = () => {
+      let scrollY = window.scrollY;
+
+      sections.forEach((current) => {
+        if (!(current instanceof HTMLElement)) return;
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 150;
+        const sectionId = current.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLinks.forEach((link) => {
+            const activeColor = link.getAttribute("data-color");
+
+            if (link.getAttribute("data-section") === sectionId) {
+              link.classList.remove("text-white/60");
+              link.classList.add(activeColor, "font-bold");
+
+              if (activeColor === "text-emerald-400")
+                link.classList.add(
+                  "drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]",
+                );
+              if (activeColor === "text-cyan-400")
+                link.classList.add(
+                  "drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]",
+                );
+              if (activeColor === "text-purple-400")
+                link.classList.add(
+                  "drop-shadow-[0_0_8px_rgba(192,132,252,0.5)]",
+                );
+              if (activeColor === "text-yellow-400")
+                link.classList.add(
+                  "drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]",
+                );
+            } else {
+              link.classList.add("text-white/60");
+              link.classList.remove(
+                activeColor,
+                "font-bold",
+                "drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]",
+                "drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]",
+                "drop-shadow-[0_0_8px_rgba(192,132,252,0.5)]",
+                "drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]",
+              );
+            }
+          });
+        }
+      });
+    };
+
+    window.addEventListener("scroll", updateActiveSection);
+    setTimeout(updateActiveSection, 100);
+  });
+</script>

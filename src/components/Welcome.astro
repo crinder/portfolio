@@ -1,24 +1,22 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
-import Footer from '../components/Footer.astro';
-import Nav from '../components/Nav.astro'
-import Tags from '../components/Tags.astro'
-import About from '../components/About.astro'
-import Contact from '../components/Contact.astro'
-import Content from '../components/Content.astro'
-import Projects from '../components/Projects.astro';
-import Experience from '../components/Experience.astro';
+import Footer from "../components/general/Footer.astro";
+import Nav from "../components/nav/Nav.astro";
+import Tags from "../components/general/Tags.astro";
+import About from "../components/about/About.astro";
+import Contact from "../components/contact/Contact.astro";
+import Content from "../components/hero/Content.astro";
+import Projects from "../components/projects/Projects.astro";
+import Experience from "../components/experience/Experience.astro";
 ---
 
 <div id="container">
-    <Content/>
-    <Nav/>
-    <Projects/>
-    <Tags client:load/>
-    <About/>
-    <Experience/>
-    <Contact/>
-    
-    <Footer/>
+    <Content />
+    <Nav />
+    <Projects />
+    <Tags client:load />
+    <About />
+    <Experience />
+    <Contact />
+
+    <Footer />
 </div>
