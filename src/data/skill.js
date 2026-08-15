@@ -10,6 +10,7 @@ export const data = {
         { name: "Tailwind CSS", color: "from-teal-400 to-emerald-400" },
         { name: "Bootstrap", color: "from-purple-500 to-indigo-500" },
         { name: "jQuery", color: "from-blue-400 to-sky-400" },
+        { name: "React Native", color: "from-cyan-400 to-blue-400" },
     ],
 
     backendSkill: [
@@ -19,9 +20,8 @@ export const data = {
         { name: "MongoDB", color: "from-green-400 to-emerald-400" },
         { name: "SQL", color: "from-amber-400 to-orange-400" },
         { name: "PL/SQL", color: "from-purple-400 to-pink-400" },
+        { name: "Oracle APEX", color: "from-red-400 to-orange-500" },
         { name: "APIs REST / SOAP", color: "from-cyan-400 to-blue-500" },
-        { name: "Docker", color: "from-blue-400 to-cyan-500" },
-        { name: "Nginx", color: "from-green-500 to-teal-500" },
     ],
 
     toolSkil: [
@@ -30,7 +30,8 @@ export const data = {
         { name: "n8n (Automation)" },
         { name: "VS Code" },
         { name: "Oracle Forms / Reports" },
-        { name: "Toad / APEX" },
-        { name: "Termius / VPS" },
-    ]
+        { name: "DevOps" },
+        { name: "CI/CD" },
+        { name: "Nginx" },
+    ],
 }
