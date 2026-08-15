@@ -1,5 +1,6 @@
 ---
 import img from "@/img/avatar.jpeg";
+import Icon from "@/components/general/Icon.astro";
 ---
 
 <section
@@ -59,48 +60,21 @@ import img from "@/img/avatar.jpeg";
           añadir complicaciones innecesarias.
         </p>
 
-        <!-- CTAs -->
         <div class="flex flex-wrap gap-4">
-          <!-- CTA Principal: CV -->
           <a
             href="/cv.pdf"
             download
             class="group relative inline-flex items-center gap-2.5 px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-bold text-sm rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(52,211,153,0.3)] hover:shadow-[0_0_30px_rgba(52,211,153,0.5)] hover:-translate-y-0.5"
           >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
+            <Icon name="download" class="w-4 h-4" />
             ./download --cv
           </a>
-
-          <!-- CTA Secundario: Ver proyectos -->
           <a
             href="#projects"
             class="group inline-flex items-center gap-2.5 px-6 py-3 bg-transparent border border-white/20 hover:border-cyan-500/50 text-white/70 hover:text-cyan-400 font-mono text-sm rounded-lg transition-all duration-300 hover:-translate-y-0.5"
           >
             ./view_projects
-            <svg
-              class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
-            </svg>
+            <Icon name="arrow-down" class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
         </div>
       </div>

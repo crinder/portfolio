@@ -1,5 +1,6 @@
 ---
 import { data } from "@/data/projects.js";
+import Icon from "@/components/general/Icon.astro";
 
 const allProjects = data.projects;
 const featuredProjects = allProjects.slice(0, 3);
@@ -98,9 +99,7 @@ const olderProjects = allProjects.slice(3);
                       rel="noopener noreferrer"
                     >
                       <span>./run_demo --live</span>
-                      <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                      <Icon name="external-link" class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </a>
                   </div>
 
@@ -186,9 +185,7 @@ const olderProjects = allProjects.slice(3);
                             rel="noopener noreferrer"
                           >
                             <span>./run_demo --live</span>
-                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
+                            <Icon name="external-link" class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                           </a>
                         </div>
 
@@ -211,15 +208,10 @@ const olderProjects = allProjects.slice(3);
               class="group relative inline-flex items-center gap-2 px-8 py-4 bg-[#09090B] border border-white/10 rounded-xl text-white font-mono text-sm hover:border-cyan-500/40 hover:text-cyan-400 transition-all duration-300 shadow-xl"
             >
               <span id="btn-projects-text">./carga_mas_proyectos.sh</span>
-              <svg
-                id="btn-projects-icon"
+              <Icon
+                name="arrow-down"
                 class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
+              />
             </button>
           </div>
         )
