@@ -2,12 +2,12 @@
 import { data } from "@/data/data.js";
 const dataexperience = data.experience;
 
-// Función para generar nombres de archivo semánticos
+// Función para generar nombres de archivo semánticos basados en la empresa
 const getFileName = (empresa, cargo, index) => {
     if (empresa) {
-        return `${empresa.toLowerCase().replace(/\s+/g, "-")}.md`;
+        return `${empresa.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}.md`;
     }
-    const rolePrefix = cargo.split(" ")[0].toLowerCase();
+    const rolePrefix = cargo ? cargo.split(" ")[0].toLowerCase() : "exp";
     return `${rolePrefix}-0${index + 1}.md`;
 };
 ---

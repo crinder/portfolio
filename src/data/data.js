@@ -2,6 +2,7 @@ export const data = {
     experience: [
         {
             cargo: "Desarrollador Full-Stack / Consultor Independiente",
+            empresa: "Freelance",
             periodo: "2026 – Presente · Freelance",
             actividades: [
                 {
@@ -43,6 +44,7 @@ export const data = {
         },
         {
             cargo: "Desarrollador Full-Stack",
+            empresa: "Blackfin Corp",
             periodo: "2019 – 2026 · Blackfin Corp",
             actividades: [
                 {
@@ -86,6 +88,7 @@ export const data = {
         },
         {
             cargo: "Consultor Backend",
+            empresa: "G-Force",
             periodo: "2023 – 2024 · G-Force (Banesco Seguros Panamá)",
             actividades: [
                 {
@@ -118,6 +121,7 @@ export const data = {
         },
         {
             cargo: "Consultor de Sistemas & Desarrollador PL/SQL / APEX",
+            empresa: "Iberoseguros",
             periodo: "2017 – 2019 · Iberoseguros",
             actividades: [
                 {
@@ -150,6 +154,7 @@ export const data = {
         },
         {
             cargo: "Especialista de Aplicaciones II",
+            empresa: "Banesco Seguros",
             periodo: "2017 – 2017 · Banesco Seguros",
             actividades: [
                 {
@@ -175,6 +180,7 @@ export const data = {
         },
         {
             cargo: "Programador Junior / Auxiliar TI",
+            empresa: "Seguros Venezuela",
             periodo: "2016 – 2017 · Seguros Venezuela / Iberoseguros",
             actividades: [
                 {
