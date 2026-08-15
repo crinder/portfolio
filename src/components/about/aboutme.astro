@@ -1,5 +1,6 @@
 ---
 import { icons } from "@/data/icons.js";
+import Icon from "@/components/general/Icon.astro";
 const svgIcon = icons.svgIcon;
 ---
 
@@ -9,9 +10,7 @@ const svgIcon = icons.svgIcon;
             <div
                 class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20 transition-shadow duration-500 group-hover:shadow-purple-500/30"
             >
-                <svg class="w-8 h-8 text-white">
-                    <use href="/sprite.svg#icon-terminal"></use>
-                </svg>
+                <Icon name="terminal" class="w-8 h-8 text-white" />
             </div>
             <div>
                 <h3 class="text-xl font-bold text-white leading-tight">
@@ -34,7 +33,6 @@ const svgIcon = icons.svgIcon;
                 fáciles de usar.
             </p>
 
-            <!-- Card interna -->
             <div class="relative group">
                 <div
                     class="absolute -inset-0.5 rounded-2xl blur bg-gradient-to-r from-purple-600 to-pink-600 opacity-10 transition-opacity duration-500 group-hover:opacity-20"
@@ -46,9 +44,7 @@ const svgIcon = icons.svgIcon;
                     <h4
                         class="text-white font-bold text-lg mb-2 flex items-center gap-2"
                     >
-                        <svg class="w-5 h-5 text-pink-500">
-                            <use href="/sprite.svg#icon-target"></use>
-                        </svg>
+                        <Icon name="target" class="w-5 h-5 text-pink-500" />
                         ¿Qué aporto a tu negocio?
                     </h4>
                     <p class="text-white/70 leading-relaxed">
@@ -69,15 +65,12 @@ const svgIcon = icons.svgIcon;
         </div>
     </div>
 
-    <!-- Iconos flotantes -->
     <div
         class="relative flex justify-center items-center flex-wrap mt-15 gap-8 p-5"
     >
         {
             svgIcon.map((icon) => (
-                <svg class={`w-14 h-14 ${icon.position}`}>
-                    <use href={`/sprite.svg#${icon.name}`} />
-                </svg>
+                <Icon name={icon.name} class={`w-14 h-14 ${icon.position}`} />
             ))
         }
     </div>

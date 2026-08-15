@@ -1,5 +1,6 @@
 ---
 import { data } from "@/data/skill.js";
+import Icon from "@/components/general/Icon.astro";
 const frotendSkill = data.frotendSkill;
 const backendSkill = data.backendSkill;
 const toolSkil = data.toolSkil;
@@ -8,9 +9,7 @@ const toolSkil = data.toolSkil;
 <div class="animate-on-scroll">
     <div class="relative">
         <div class="flex items-center gap-4 mb-6">
-            <svg class="w-6 h-6 text-purple-400">
-                <use href="sprite.svg#icon-check-circle"></use>
-            </svg>
+            <Icon name="check-circle" class="w-6 h-6 text-purple-400" />
             <h3 class="text-2xl font-bold text-white">Stack Tecnológico</h3>
         </div>
 
